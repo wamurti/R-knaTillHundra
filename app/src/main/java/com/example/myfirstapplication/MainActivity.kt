@@ -3,6 +3,7 @@ package com.example.myfirstapplication
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
@@ -15,12 +16,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.delay
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        var lastClickTime : Long = 0;
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val btnClickMe = findViewById<Button>(R.id.mybutton)
         val btnReset = findViewById<Button>(R.id.resetbutton)
@@ -40,8 +44,20 @@ class MainActivity : AppCompatActivity() {
 
         btnClickMe.setOnClickListener { view ->
 
+            //Lägger in en delay så att det inte går att spamma
+            if (SystemClock.elapsedRealtime() - lastClickTime < 750){
+                return@setOnClickListener
+            }
+            lastClickTime = SystemClock.elapsedRealtime();
 
-            view.performHapticFeedback(HapticFeedbackConstants.CONFIRM)
+
+
+            view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY,
+                HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING)
+
+
+
+
 
             timesClicked +=1
             greetingText.text = timesClicked.toString()
@@ -110,6 +126,13 @@ class MainActivity : AppCompatActivity() {
                     star += "\ud83c\udf1f"
                 }
             }
+
+
+
+
+
+
+
         }
         btnReset.setOnClickListener {
             timesClicked +=1
@@ -128,6 +151,8 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+
 
     }
 }
