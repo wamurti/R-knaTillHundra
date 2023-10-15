@@ -1,6 +1,7 @@
 package com.example.myfirstapplication
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
@@ -65,38 +66,45 @@ class MainActivity : AppCompatActivity() {
                 5 -> {
                     Toast.makeText(this, rainBow,Toast.LENGTH_LONG).show()
                     rainBow += rainBow
+
                 }
                 10 -> {
                     Toast.makeText(this, rainBow,Toast.LENGTH_LONG).show()
                     rainBow += "\ud83c\udf08"
+                    greetingText.setTextColor(Color.parseColor("#007FFF"))
                 }
                 15 -> {
                     Toast.makeText(this, rainBow,Toast.LENGTH_LONG).show()
                     rainBow += "\ud83c\udf08"
+
                 }
                 20 -> {
                     Toast.makeText(this, rainBow+star,Toast.LENGTH_LONG).show()
                     oneStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += star
+                    greetingText.setTextColor(Color.parseColor("#FF00FF"))
                 }
                 30 -> {
                     Toast.makeText(this, rainBow+star,Toast.LENGTH_LONG).show()
                     twoStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += "\ud83c\udf1f"
+                    greetingText.setTextColor(Color.parseColor("#FF007F"))
                 }
                 40 -> {
                     Toast.makeText(this, rainBow+star,Toast.LENGTH_LONG).show()
                     threeStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += "\ud83c\udf1f"
+                    greetingText.setTextColor(Color.parseColor("#7F00FF"))
                 }
                 50 -> {
                     Toast.makeText(this, rainBow+star,Toast.LENGTH_LONG).show()
                     fourStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += "\ud83c\udf1f"
+                    greetingText.setTextColor(Color.parseColor("#FF7F00"))
                 }
 
                 60 -> {
@@ -104,6 +112,7 @@ class MainActivity : AppCompatActivity() {
                     fiveStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += "\ud83c\udf1f"
+                    greetingText.setTextColor(Color.parseColor("#FF00FF"))
                 }
 
                 70 -> {
@@ -111,6 +120,7 @@ class MainActivity : AppCompatActivity() {
                     sixStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += "\ud83c\udf1f"
+                    greetingText.setTextColor(Color.parseColor("#FF007F"))
                 }
 
                 80 -> {
@@ -118,12 +128,14 @@ class MainActivity : AppCompatActivity() {
                     sevenStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += "\ud83c\udf1f"
+                    greetingText.setTextColor(Color.parseColor("#00FFFF"))
                 }
                 90 -> {
                     Toast.makeText(this, rainBow+star,Toast.LENGTH_LONG).show()
                     eightStar.setVisibility(VISIBLE)
                     rainBow += "\ud83c\udf08"
                     star += "\ud83c\udf1f"
+                    greetingText.setTextColor(Color.parseColor("#FF00FF"))
                 }
             }
 
